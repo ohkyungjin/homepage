@@ -135,29 +135,7 @@ const Header = () => {
               장례 비용
             </Link>
             
-            <Link 
-              href="/about" 
-              className="text-text hover:text-primary transition-colors py-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              회사 소개
-            </Link>
-            <Link 
-              href="/services" 
-              className="text-text hover:text-primary transition-colors py-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              서비스
-            </Link>
-            <Link 
-              href="/pricing" 
-              className="text-text hover:text-primary transition-colors py-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              가격
-            </Link>
-            
-            {/* 모바일 시설 안내 메뉴 추가 */}
+            {/* 모바일 시설 안내 메뉴 */}
             <Link 
               href="/facility" 
               className="text-text hover:text-primary transition-colors py-2"

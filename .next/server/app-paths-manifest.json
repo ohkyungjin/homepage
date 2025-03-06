@@ -1,14 +1,8 @@
 {
-  "/_not-found": "app/_not-found.js",
-  "/cielo/forest/page": "app/cielo/forest/page.js",
-  "/cielo/stone/page": "app/cielo/stone/page.js",
-  "/cielo/page": "app/cielo/page.js",
-  "/cielo/story/page": "app/cielo/story/page.js",
-  "/facility/page": "app/facility/page.js",
-  "/funeral-cost/page": "app/funeral-cost/page.js",
-  "/funeral-services/page": "app/funeral-services/page.js",
-  "/home/page": "app/home/page.js",
+  "/not-found": "app/not-found.js",
   "/page": "app/page.js",
-  "/blog/page": "app/blog/page.js",
-  "/funeral-reservation/page": "app/funeral-reservation/page.js"
+  "/home/page": "app/home/page.js",
+  "/funeral-services/page": "app/funeral-services/page.js",
+  "/funeral-cost/page": "app/funeral-cost/page.js",
+  "/facility/page": "app/facility/page.js"
 }

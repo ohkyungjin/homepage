@@ -1,129 +1,40 @@
 {
   "pages": {
-    "/_not-found": [
-      "static/chunks/webpack-9c918a82f5e9b24c.js",
-      "static/chunks/fd9d1056-33c699de0a8af65e.js",
-      "static/chunks/938-40cfbc564813d514.js",
-      "static/chunks/main-app-170f5369945bb023.js",
-      "static/chunks/app/_not-found-a4f18d9827df7ceb.js"
-    ],
     "/layout": [
-      "static/chunks/webpack-9c918a82f5e9b24c.js",
-      "static/chunks/fd9d1056-33c699de0a8af65e.js",
-      "static/chunks/938-40cfbc564813d514.js",
-      "static/chunks/main-app-170f5369945bb023.js",
-      "static/chunks/221-d021909c58d9aae1.js",
-      "static/css/27d5f01f26ed1a4d.css",
-      "static/chunks/app/layout-3cc23d26467341a9.js"
-    ],
-    "/cielo/forest/page": [
-      "static/chunks/webpack-9c918a82f5e9b24c.js",
-      "static/chunks/fd9d1056-33c699de0a8af65e.js",
-      "static/chunks/938-40cfbc564813d514.js",
-      "static/chunks/main-app-170f5369945bb023.js",
-      "static/chunks/221-d021909c58d9aae1.js",
-      "static/chunks/691-ad9ad22ba34e6d1e.js",
-      "static/chunks/app/cielo/forest/page-fb9f701678445645.js"
-    ],
-    "/cielo/stone/page": [
-      "static/chunks/webpack-9c918a82f5e9b24c.js",
-      "static/chunks/fd9d1056-33c699de0a8af65e.js",
-      "static/chunks/938-40cfbc564813d514.js",
-      "static/chunks/main-app-170f5369945bb023.js",
-      "static/chunks/221-d021909c58d9aae1.js",
-      "static/chunks/691-ad9ad22ba34e6d1e.js",
-      "static/chunks/app/cielo/stone/page-32426e1e5126473c.js"
-    ],
-    "/cielo/page": [
-      "static/chunks/webpack-9c918a82f5e9b24c.js",
-      "static/chunks/fd9d1056-33c699de0a8af65e.js",
-      "static/chunks/938-40cfbc564813d514.js",
-      "static/chunks/main-app-170f5369945bb023.js",
-      "static/chunks/221-d021909c58d9aae1.js",
-      "static/chunks/691-ad9ad22ba34e6d1e.js",
-      "static/chunks/app/cielo/page-cd3b00115f2e5a84.js"
-    ],
-    "/cielo/story/page": [
-      "static/chunks/webpack-9c918a82f5e9b24c.js",
-      "static/chunks/fd9d1056-33c699de0a8af65e.js",
-      "static/chunks/938-40cfbc564813d514.js",
-      "static/chunks/main-app-170f5369945bb023.js",
-      "static/chunks/221-d021909c58d9aae1.js",
-      "static/chunks/691-ad9ad22ba34e6d1e.js",
-      "static/chunks/app/cielo/story/page-6e2a7b4284a8cc15.js"
-    ],
-    "/facility/page": [
-      "static/chunks/webpack-9c918a82f5e9b24c.js",
-      "static/chunks/fd9d1056-33c699de0a8af65e.js",
-      "static/chunks/938-40cfbc564813d514.js",
-      "static/chunks/main-app-170f5369945bb023.js",
-      "static/chunks/221-d021909c58d9aae1.js",
-      "static/chunks/691-ad9ad22ba34e6d1e.js",
-      "static/chunks/app/facility/page-07f0d7ca40e27d02.js"
-    ],
-    "/funeral-cost/page": [
-      "static/chunks/webpack-9c918a82f5e9b24c.js",
-      "static/chunks/fd9d1056-33c699de0a8af65e.js",
-      "static/chunks/938-40cfbc564813d514.js",
-      "static/chunks/main-app-170f5369945bb023.js",
-      "static/chunks/691-ad9ad22ba34e6d1e.js",
-      "static/chunks/app/funeral-cost/page-f0fa592bb7e0ab1b.js"
-    ],
-    "/funeral-services/page": [
-      "static/chunks/webpack-9c918a82f5e9b24c.js",
-      "static/chunks/fd9d1056-33c699de0a8af65e.js",
-      "static/chunks/938-40cfbc564813d514.js",
-      "static/chunks/main-app-170f5369945bb023.js",
-      "static/chunks/221-d021909c58d9aae1.js",
-      "static/chunks/691-ad9ad22ba34e6d1e.js",
-      "static/chunks/app/funeral-services/page-b39ed83c1ddfe4c3.js"
-    ],
-    "/home/page": [
-      "static/chunks/webpack-9c918a82f5e9b24c.js",
-      "static/chunks/fd9d1056-33c699de0a8af65e.js",
-      "static/chunks/938-40cfbc564813d514.js",
-      "static/chunks/main-app-170f5369945bb023.js",
-      "static/chunks/221-d021909c58d9aae1.js",
-      "static/chunks/691-ad9ad22ba34e6d1e.js",
-      "static/chunks/app/home/page-5b42126d90678cdd.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
     ],
     "/page": [
-      "static/chunks/webpack-9c918a82f5e9b24c.js",
-      "static/chunks/fd9d1056-33c699de0a8af65e.js",
-      "static/chunks/938-40cfbc564813d514.js",
-      "static/chunks/main-app-170f5369945bb023.js",
-      "static/chunks/app/page-cb2a585fa66ac4cd.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/page.js"
     ],
-    "/blog/page": [
-      "static/chunks/webpack-9c918a82f5e9b24c.js",
-      "static/chunks/fd9d1056-33c699de0a8af65e.js",
-      "static/chunks/938-40cfbc564813d514.js",
-      "static/chunks/main-app-170f5369945bb023.js",
-      "static/chunks/221-d021909c58d9aae1.js",
-      "static/chunks/691-ad9ad22ba34e6d1e.js",
-      "static/chunks/app/blog/page-643ef1bd2dace2f0.js"
+    "/home/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/home/page.js"
     ],
-    "/blog/layout": [
-      "static/chunks/webpack-9c918a82f5e9b24c.js",
-      "static/chunks/fd9d1056-33c699de0a8af65e.js",
-      "static/chunks/938-40cfbc564813d514.js",
-      "static/chunks/main-app-170f5369945bb023.js",
-      "static/chunks/221-d021909c58d9aae1.js",
-      "static/chunks/app/blog/layout-d8f6cc5e8152626b.js"
+    "/funeral-services/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/funeral-services/page.js"
     ],
-    "/funeral-reservation/page": [
-      "static/chunks/webpack-9c918a82f5e9b24c.js",
-      "static/chunks/fd9d1056-33c699de0a8af65e.js",
-      "static/chunks/938-40cfbc564813d514.js",
-      "static/chunks/main-app-170f5369945bb023.js",
-      "static/chunks/app/funeral-reservation/page-9dfd8d3ef918d117.js"
+    "/funeral-cost/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/funeral-cost/page.js"
     ],
-    "/funeral-reservation/layout": [
-      "static/chunks/webpack-9c918a82f5e9b24c.js",
-      "static/chunks/fd9d1056-33c699de0a8af65e.js",
-      "static/chunks/938-40cfbc564813d514.js",
-      "static/chunks/main-app-170f5369945bb023.js",
-      "static/chunks/app/funeral-reservation/layout-f85a00b0980114ac.js"
+    "/facility/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/facility/page.js"
+    ],
+    "/not-found": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/not-found.js"
     ]
   }
 }
