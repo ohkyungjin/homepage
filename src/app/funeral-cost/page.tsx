@@ -11,7 +11,7 @@ const funeralConceptPlans = [
     title: '베이직 예식',
     price: '390,000원',
     description: '소중한 반려동물을 위한 기본적인 장례 서비스로, 정중하고 품격 있는 마지막 길을 제공합니다.',
-    image: '/images/basic-ceremony.jpg',
+    image: 'https://plus.unsplash.com/premium_photo-1715110519254-7e1b6e7528c9?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     features: [
       '기본 장례용품 제공',
       '단독 화장 서비스',
@@ -27,7 +27,7 @@ const funeralConceptPlans = [
     title: '씨엘로 예식',
     price: '590,000원',
     description: '프리미엄 장례 서비스로, 고급스러운 의식과 특별한 추모 경험을 제공합니다.',
-    image: '/images/cielo-ceremony.jpg',
+    image: 'https://media.istockphoto.com/id/451187387/ko/%EC%82%AC%EC%A7%84/%EA%BD%83-%ED%95%9C-%EC%BD%94%ED%95%80-%EC%9E%88%EB%8A%94-%EA%B5%90%ED%9A%8C.jpg?s=1024x1024&w=is&k=20&c=NbH2xxj7LJMZIqcw-XqMXcozI2snKZ3oBxz2RJ2A_aY=',
     features: [
       '프리미엄 장례용품 제공',
       '단독 화장 서비스',
@@ -43,9 +43,9 @@ const funeralConceptPlans = [
   {
     id: 'flower',
     title: '플라워 예식',
-    price: '490,000원',
+    price: '690,000원',
     description: '아름다운 꽃으로 장식된 특별한 장례 서비스로, 화사하고 따뜻한 분위기에서 마지막 작별을 할 수 있습니다.',
-    image: '/images/flower-ceremony.jpg',
+    image: 'https://images.unsplash.com/photo-1544813545-4827b64fcacb?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     features: [
       '꽃으로 장식된 추모실',
       '단독 화장 서비스',
@@ -130,7 +130,7 @@ export default function FuneralCostPage() {
             </div>
             <div className="md:w-1/2 h-64 md:h-80 relative ml-auto">
               <Image
-                src="/images/cielo-ceremony.jpg"
+                src="https://plus.unsplash.com/premium_photo-1715110520644-f9e4a8751039?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="반려동물 장례 서비스"
                 fill
                 className="object-cover"

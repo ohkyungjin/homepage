@@ -8,10 +8,10 @@ export default function CieloForestPage() {
   return (
     <div className="bg-white">
       {/* 헤더 섹션 */}
-      <div className="relative h-[60vh] bg-primary/5 overflow-hidden">
+      <div className="relative h-[60vh] bg-primary overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/flower-ceremony.jpg"
+            src="https://images.unsplash.com/photo-1590034790591-5fec2c82c056?q=80&w=2942&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="씨엘로 더 숲"
             fill
             className="object-cover opacity-40"
@@ -46,7 +46,7 @@ export default function CieloForestPage() {
           <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
             <div className="aspect-[4/3] relative">
               <Image
-                src="/images/flower-ceremony.jpg"
+                src="https://images.unsplash.com/photo-1608850204404-086fc245402d?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="자연장 서비스"
                 fill
                 className="object-cover"

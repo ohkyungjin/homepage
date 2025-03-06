@@ -160,10 +160,10 @@ export default function FuneralServicesPage() {
   return (
     <div className="bg-white">
       {/* 헤더 섹션 */}
-      <div className="relative h-[50vh] bg-primary/5 overflow-hidden">
+      <div className="relative h-[50vh] bg-primary overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/cielo-ceremony.jpg"
+            src="https://images.unsplash.com/photo-1595062584313-47018e0ee5cb?q=80&w=2944&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="장례 서비스"
             fill
             className="object-cover opacity-40"

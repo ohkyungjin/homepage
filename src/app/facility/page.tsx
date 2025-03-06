@@ -165,10 +165,10 @@ export default function FacilityPage() {
   return (
     <div className="bg-white">
       {/* 헤더 섹션 */}
-      <div className="relative h-[50vh] bg-primary/5 overflow-hidden">
+      <div className="relative h-[50vh] bg-primary overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/cielo-ceremony.jpg"
+            src="https://images.unsplash.com/photo-1540018177157-957400dbd08a?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="시설 안내"
             fill
             className="object-cover opacity-40"

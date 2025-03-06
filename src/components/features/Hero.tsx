@@ -26,15 +26,15 @@ export default function Hero() {
       {/* 배경 이미지 */}
       <div className="absolute inset-0 w-full h-full">
         <Image
-          src={getImagePath("/images/hero-background.jpg")}
-          alt="반려동물 추모 배경"
+          src="https://images.unsplash.com/photo-1739361133037-77be66a4ea6a?q=80&w=2942&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="반려동물 장례식장 건물"
           fill
           className="object-cover"
           priority
           placeholder="blur"
           blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgICAgMCAgIDAwMDBAYEBAQEBAgGBgUGCQgKCgkICQkKDA8MCgsOCwkJDRENDg8QEBEQCgwSExIQEw8QEBD/2wBDAQMDAwQDBAgEBAgQCwkLEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBD/wAARCAAJAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABgcI/8QAIhAAAgEEAQQDAAAAAAAAAAAAAQIDBAUGEQAHEiExQVFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAaEQACAgMAAAAAAAAAAAAAAAABAgADESHw/9oADAMBAAIRAxEAPwCU9Qb/AJDi+Ry2+1UVFUUcVQ0UUcKrJJKFYgFmJAUEgbJPgDWt+MZuGYWW7VdLaKOsq6qjqJKeKSZYwZFQkKSoJAJA8E+TrXnQDEsYvOJZlJeKCWpqJKdUlSWdpEZQ4JBBIIJ0D4OtDXnVnKLJa6e3UdRQRU8SqiLTsQAB+k7P7vXJWKxkzMdTnf/Z"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/70"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/40"></div>
       </div>
 
       {/* 스크롤 다운 인디케이터 */}

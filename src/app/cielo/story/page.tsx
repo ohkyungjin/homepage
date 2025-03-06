@@ -8,10 +8,10 @@ export default function CieloStoryPage() {
   return (
     <div className="bg-white">
       {/* 헤더 섹션 */}
-      <div className="relative h-[60vh] bg-primary/5 overflow-hidden">
+      <div className="relative h-[60vh] bg-primary overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/basic-ceremony.jpg"
+            src="https://images.unsplash.com/photo-1437751695201-298be97a82a8?q=80&w=2872&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="씨엘로 더 스토리"
             fill
             className="object-cover opacity-40"
@@ -47,7 +47,7 @@ export default function CieloStoryPage() {
           <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
             <div className="aspect-[4/3] relative">
               <Image
-                src="/images/basic-ceremony.jpg"
+                src="https://media.istockphoto.com/id/1308172172/ko/%EC%82%AC%EC%A7%84/%EA%B4%80%EA%B3%BC-%EC%8B%AD%EC%9E%90%EA%B0%80%EB%A5%BC-%EA%B3%BC%EB%B6%80%EC%97%90%EA%B2%8C-%EB%B3%B4%EC%97%AC%EC%A3%BC%EB%8A%94-%EC%88%98%ED%96%89%EC%9E%90.jpg?s=1024x1024&w=is&k=20&c=UawiDYAFklRM-TlyN7oWOhpR4xK9EHfqtjFzUvSDmOU="
                 alt="프리미엄 봉안당"
                 fill
                 className="object-cover"

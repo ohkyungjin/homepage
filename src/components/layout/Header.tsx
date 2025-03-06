@@ -107,7 +107,7 @@ const Header = () => {
             <div className="absolute left-0 mt-2 w-60 bg-white shadow-lg rounded-md overflow-hidden transform scale-0 group-hover:scale-100 transition-transform origin-top">
               <Link href="/cielo/forest" className="flex p-3 hover:bg-gray-50 transition-colors border-b border-gray-100">
                 <div className="w-14 h-14 rounded-md overflow-hidden mr-3 flex-shrink-0">
-                  <img src={getImagePath("/images/flower-ceremony.jpg")} alt="씨엘로 더 숲" className="w-full h-full object-cover" />
+                  <img src={getImagePath("https://images.unsplash.com/photo-1437751695201-298be97a82a8?q=80&w=2872&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")} alt="씨엘로 더 숲" className="w-full h-full object-cover" />
                 </div>
                 <div>
                   <h3 className="font-medium text-primary text-sm">씨엘로 더 숲</h3>
@@ -116,7 +116,7 @@ const Header = () => {
               </Link>
               <Link href="/cielo/story" className="flex p-3 hover:bg-gray-50 transition-colors border-b border-gray-100">
                 <div className="w-14 h-14 rounded-md overflow-hidden mr-3 flex-shrink-0">
-                  <img src={getImagePath("/images/cielo-ceremony.jpg")} alt="씨엘로 더 스토리" className="w-full h-full object-cover" />
+                  <img src={getImagePath("https://images.unsplash.com/photo-1437751695201-298be97a82a8?q=80&w=2872&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")} alt="씨엘로 더 스토리" className="w-full h-full object-cover" />
                 </div>
                 <div>
                   <h3 className="font-medium text-primary text-sm">씨엘로 더 스토리</h3>
@@ -134,12 +134,6 @@ const Header = () => {
               </Link>
             </div>
           </div>
-          
-          <Link href="/blog" className={`transition-colors text-sm lg:text-base font-medium ${
-            scrolled ? 'text-text hover:text-primary' : 'text-white hover:text-white/80'
-          }`}>
-            블로그
-          </Link>
         </nav>
 
         {/* CTA 버튼 */}
@@ -272,15 +266,6 @@ const Header = () => {
                 </div>
               )}
             </div>
-            
-            <Link 
-              href="/blog" 
-              className="text-text hover:text-primary transition-colors py-2 text-base font-medium"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              블로그
-            </Link>
-            
             <div className="pt-3 mt-3 border-t border-gray-100">
               <Link 
                 href="/funeral-reservation" 
