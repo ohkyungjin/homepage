@@ -53,6 +53,76 @@ npm run start
 yarn start
 ```
 
+## GitHub Pages 배포
+
+이 프로젝트는 GitHub Pages를 통해 배포할 수 있습니다. 파일을 수정한 후 다음 단계를 따라 재배포하세요:
+
+### 수동 배포 방법
+
+```bash
+# 변경사항 커밋
+git add .
+git commit -m "변경 내용 설명"
+git push origin main
+
+# GitHub Pages에 배포
+npm run deploy
+```
+
+`npm run deploy` 명령은 프로젝트를 빌드하고 `gh-pages` 브랜치에 배포합니다.
+
+### 자동 배포 설정
+
+이 프로젝트는 GitHub Actions를 사용하여 자동 배포가 설정되어 있습니다. `main` 브랜치에 변경사항을 푸시하면 자동으로 GitHub Pages에 배포됩니다.
+
+1. GitHub 저장소의 Settings > Pages 섹션에서 다음 설정을 확인하세요:
+   - Source: GitHub Actions
+   - 또는 Source: Deploy from a branch, Branch: gh-pages / (root)
+
+2. 배포 상태는 GitHub 저장소의 Actions 탭에서 확인할 수 있습니다.
+
+3. 배포가 완료되면 `https://[username].github.io/[repository-name]/`에서 웹사이트를 확인할 수 있습니다.
+
+### 배포 문제 해결
+
+- 배포 후 사이트가 보이지 않는 경우, 브라우저 캐시를 초기화하거나 시크릿 모드에서 접속해 보세요.
+- GitHub Actions 워크플로우에 문제가 있는 경우, `.github/workflows/deploy.yml` 파일을 확인하세요.
+- `next.config.js` 파일에서 `basePath`와 `assetPrefix`가 저장소 이름과 일치하는지 확인하세요.
+
+### 정적 이미지 문제 해결
+
+배포 후 정적 이미지가 보이지 않는 경우 다음 방법을 시도해 보세요:
+
+1. **커스텀 Image 컴포넌트 사용**:
+   - `src/app/components/Image.tsx`에 있는 커스텀 Image 컴포넌트를 사용하세요.
+   - 모든 `import Image from 'next/image'`를 `import Image from '@/app/components/Image'`로 변경하세요.
+
+2. **이미지 경로 수정**:
+   - 모든 이미지 경로 앞에 basePath를 추가하세요. 예: `/images/example.jpg` → `/homepage/images/example.jpg`
+   - 또는 상대 경로를 사용하세요. 예: `./images/example.jpg`
+
+3. **public 폴더 구조 확인**:
+   - 이미지가 `public` 폴더 내에 올바르게 위치해 있는지 확인하세요.
+   - 빌드 후 `out` 폴더에 이미지가 포함되어 있는지 확인하세요.
+
+4. **next.config.js 설정 확인**:
+   ```js
+   /** @type {import('next').NextConfig} */
+   const nextConfig = {
+     output: 'export',
+     images: {
+       unoptimized: true,
+     },
+     basePath: '/homepage',  // 저장소 이름으로 변경
+     assetPrefix: '/homepage',  // 저장소 이름으로 변경
+     trailingSlash: true,
+   };
+   ```
+
+5. **배포 후 확인**:
+   - 변경 사항을 적용한 후 다시 배포하세요: `npm run deploy`
+   - 브라우저 캐시를 초기화하고 페이지를 새로고침하세요.
+
 ## 프로젝트 구조
 
 ```

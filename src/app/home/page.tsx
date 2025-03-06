@@ -12,12 +12,14 @@ export default function HomePage() {
   return (
     <main className="bg-white">
       <Hero />
-      <Features />
-      <Stats />
-      <Gallery />
-      <Testimonials />
-      <BlogGrid />
-      <CTA />
+      <div className="relative z-10">
+        <Features />
+        <Stats />
+        <Gallery />
+        <Testimonials />
+        <BlogGrid />
+        <CTA />
+      </div>
     </main>
   );
 } 
