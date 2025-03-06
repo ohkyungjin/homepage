@@ -12,8 +12,8 @@ const nextConfig = {
       },
     ],
   },
-  basePath: '', // 저장소 이름으로 설정하거나 비워두세요
-  assetPrefix: '',
+  basePath: '/auth3',
+  assetPrefix: '/auth3',
   trailingSlash: true,
 };
 
