@@ -12,8 +12,8 @@ const nextConfig = {
       },
     ],
   },
-  basePath: '/auth3',
-  assetPrefix: '/auth3',
+  basePath: '/homepage',
+  assetPrefix: '/homepage',
   trailingSlash: true,
 };
 
