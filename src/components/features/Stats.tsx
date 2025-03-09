@@ -1,130 +1,147 @@
 'use client';
 
-import { useInView } from 'react-intersection-observer';
-import { useState, useEffect } from 'react';
-import { Heart, Calendar, Users, Star } from 'lucide-react';
-
-// 통계 데이터
-const stats = [
-  {
-    icon: Heart,
-    value: 5000,
-    label: '함께한 가족',
-    suffix: '+'
-  },
-  {
-    icon: Calendar,
-    value: 10,
-    label: '서비스 연혁',
-    suffix: '년'
-  },
-  {
-    icon: Users,
-    value: 20,
-    label: '전문 장례지도사',
-    suffix: '명'
-  },
-  {
-    icon: Star,
-    value: 98,
-    label: '고객 만족도',
-    suffix: '%'
-  }
-];
+import { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 export default function Stats() {
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.1
-  });
-
-  const [counters, setCounters] = useState(stats.map(() => 0));
+  const [count, setCount] = useState(0);
+  const targetCount = 30000;
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
   
   useEffect(() => {
-    if (inView) {
-      const intervals = stats.map((stat, index) => {
-        const duration = 2000; // 애니메이션 지속 시간 (ms)
-        const steps = 50; // 총 단계 수
-        const stepValue = stat.value / steps; // 각 단계별 증가값
-        const stepTime = duration / steps; // 각 단계별 시간
-        
-        let currentStep = 0;
-        
-        return setInterval(() => {
-          if (currentStep < steps) {
-            setCounters(prev => {
-              const newCounters = [...prev];
-              newCounters[index] = Math.min(Math.round(stepValue * (currentStep + 1)), stat.value);
-              return newCounters;
-            });
-            currentStep++;
-          } else {
-            clearInterval(intervals[index]);
-          }
-        }, stepTime);
-      });
-      
-      return () => {
-        intervals.forEach(interval => clearInterval(interval));
-      };
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+    
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
     }
-  }, [inView]);
+    
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+  
+  useEffect(() => {
+    if (!isVisible) return;
+    
+    const duration = 2000; // 애니메이션 지속 시간 (ms)
+    const steps = 50; // 총 단계 수
+    const stepValue = targetCount / steps; // 각 단계별 증가값
+    const stepTime = duration / steps; // 각 단계별 시간
+    
+    let currentStep = 0;
+    
+    const interval = setInterval(() => {
+      if (currentStep < steps) {
+        setCount(Math.min(Math.round(stepValue * (currentStep + 1)), targetCount));
+        currentStep++;
+      } else {
+        clearInterval(interval);
+      }
+    }, stepTime);
+    
+    return () => clearInterval(interval);
+  }, [isVisible]);
+
+  // 통계 아이템 데이터
+  const statItems = [
+    {
+      label: "누적 장례",
+      value: count.toLocaleString(),
+      suffix: "건+",
+      color: "from-gray-500 to-gray-700"
+    },
+    {
+      label: "서비스 만족도",
+      value: "98",
+      suffix: "%",
+      color: "from-gray-500 to-gray-700"
+    },
+    {
+      label: "전문 장례지도사",
+      value: "24",
+      suffix: "명",
+      color: "from-gray-500 to-gray-700"
+    },
+    {
+      label: "연중무휴",
+      value: "24",
+      suffix: "시간",
+      color: "from-gray-500 to-gray-700"
+    }
+  ];
 
   return (
-    <section className="py-16 md:py-24 bg-white">
-      <div className="max-w-container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-            씨엘로펫과 함께한 여정
-          </h2>
-          <p className="text-lg text-text/80 max-w-3xl mx-auto">
-            지난 10년간 많은 가족들과 함께하며 소중한 반려동물의 마지막 여정을 함께했습니다.
-            씨엘로펫은 앞으로도 변함없는 정성으로 함께하겠습니다.
-          </p>
+    <section 
+      ref={sectionRef}
+      className="relative py-24 overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100"
+    >
+      {/* 배경 장식 요소 */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute top-[10%] left-[5%] w-64 h-64 rounded-full bg-gray-100 mix-blend-multiply opacity-60"></div>
+        <div className="absolute bottom-[20%] right-[10%] w-80 h-80 rounded-full bg-gray-100 mix-blend-multiply opacity-60"></div>
+        <div className="absolute top-[40%] right-[20%] w-40 h-40 rounded-full bg-gray-100 mix-blend-multiply opacity-60"></div>
+      </div>
+      
+      <div className="container mx-auto px-6 relative">
+        <div className="max-w-4xl mx-auto mb-16 text-center">
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold mb-6 text-gray-700"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+          >
+            소중한 가족과의 마지막 순간,<br />
+            <span className="italic">씨엘로펫이 함께합니다</span>
+          </motion.h2>
+          
+          <motion.p 
+            className="text-gray-600 text-lg"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            3만 건 이상의 장례를 통해 쌓인 경험과 노하우로<br />
+            반려동물과의 마지막 이별을 따뜻하게 함께합니다.
+          </motion.p>
         </div>
         
-        <div 
-          ref={ref} 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-        >
-          {stats.map((stat, index) => {
-            const Icon = stat.icon;
-            return (
-              <div 
-                key={index} 
-                className="bg-white rounded-xl p-8 text-center shadow-sm hover:shadow-md transition-shadow"
-              >
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Icon size={32} className="text-primary" />
-                </div>
-                <div className="text-4xl font-bold text-primary mb-2">
-                  {counters[index]}{stat.suffix}
-                </div>
-                <div className="text-text/80">
-                  {stat.label}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {statItems.map((item, index) => (
+            <motion.div
+              key={index}
+              className="relative bg-white rounded-2xl shadow-xl overflow-hidden"
+              initial={{ opacity: 0, y: 30 }}
+              animate={isVisible ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.1 * (index + 3) }}
+            >
+              {/* 배경 그라데이션 */}
+              <div className={`absolute top-0 left-0 h-2 w-full bg-gradient-to-r ${item.color}`}></div>
+              
+              <div className="p-8">
+                <p className="text-gray-500 font-medium mb-2">{item.label}</p>
+                <div className="flex items-baseline">
+                  <span className={`text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r ${item.color}`}>
+                    {item.value}
+                  </span>
+                  <span className="text-xl ml-1 text-gray-600">{item.suffix}</span>
                 </div>
               </div>
-            );
-          })}
-        </div>
-        
-        <div className="mt-20 bg-primary/5 rounded-2xl p-8 md:p-12">
-          <div className="md:flex items-center justify-between">
-            <div className="md:w-2/3 mb-8 md:mb-0">
-              <h3 className="text-2xl md:text-3xl font-bold text-primary mb-4">
-                씨엘로펫의 약속
-              </h3>
-              <p className="text-lg text-text/80">
-                씨엘로펫은 반려동물과 보호자 모두를 위한 따뜻한 마음으로 서비스를 제공합니다.
-                언제나 정성을 다해 소중한 가족과의 마지막 이별을 도와드리겠습니다.
-              </p>
-            </div>
-            <div className="md:w-1/3 flex justify-center md:justify-end">
-              <button className="px-8 py-4 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors text-lg font-medium">
-                상담 문의하기
-              </button>
-            </div>
-          </div>
+              
+              {/* 장식 요소 */}
+              <div className={`absolute -bottom-6 -right-6 w-24 h-24 rounded-full opacity-10 bg-gradient-to-r ${item.color}`}></div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

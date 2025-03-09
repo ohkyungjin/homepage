@@ -5,7 +5,6 @@ import Features from '@/components/features/Features';
 import Stats from '@/components/features/Stats';
 import Testimonials from '@/components/features/Testimonials';
 import Gallery from '@/components/features/Gallery';
-import BlogGrid from '@/components/features/BlogGrid';
 import CTA from '@/components/features/CTA';
 
 export default function HomePage() {
@@ -17,7 +16,6 @@ export default function HomePage() {
         <Stats />
         <Gallery />
         <Testimonials />
-        <BlogGrid />
         <CTA />
       </div>
     </main>
