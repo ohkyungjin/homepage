@@ -203,7 +203,7 @@ export default function CieloForestPage() {
                   자연 분해되는 친환경 유골함과 함께 아름다운 자연 속에서 영원한 안식을 취할 수 있는 
                   자연장 서비스입니다. 나무, 꽃, 식물과 함께 자연의 일부로 돌아가는 평화로운 여정을 함께합니다.
                 </p>
-                <ul className="space-y-4 mb-6">
+                <ul className="space-y-4 mb-6 text-black">
                   {[
                     "생분해성 친환경 유골함 제공",
                     "나무 또는 꽃과 함께 심는 수목장",
@@ -267,7 +267,7 @@ export default function CieloForestPage() {
                   아름다운 꽃으로 장식된 특별한 장례식을 통해 소중한 반려동물과의 마지막 이별을 
                   더욱 의미 있고 아름답게 만들어 드립니다. 계절별 다양한 꽃으로 맞춤 장식을 제공합니다.
                 </p>
-                <ul className="space-y-4 mb-6">
+                <ul className="space-y-4 mb-6 text-black">
                   {[
                     "신선한 생화로 장식된 장례식장",
                     "반려동물의 성격과 취향을 반영한 꽃 선택",

@@ -120,8 +120,8 @@ export default function FuneralCostPage() {
       <section className="relative h-[60vh] sm:h-[70vh] overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="https://images.unsplash.com/photo-1534361960057-19889db9621e?q=80&w=2940&auto=format&fit=crop"
-            alt="장례 서비스"
+            src="https://images.unsplash.com/photo-1507878866276-a947ef722fee?q=80&w=2942&auto=format&fit=crop"
+            alt="장례 서비스 비용 안내"
             fill
             className="object-cover filter brightness-75"
             priority

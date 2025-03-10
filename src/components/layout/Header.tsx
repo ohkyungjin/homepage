@@ -104,32 +104,32 @@ const Header = () => {
               씨엘로
               <ChevronDown size={14} className="ml-1" />
             </button>
-            <div className="absolute left-0 mt-2 w-60 bg-white shadow-lg rounded-md overflow-hidden transform scale-0 group-hover:scale-100 transition-transform origin-top">
-              <Link href="/cielo/forest" className="flex p-3 hover:bg-gray-50 transition-colors border-b border-gray-100">
-                <div className="w-14 h-14 rounded-md overflow-hidden mr-3 flex-shrink-0">
-                  <img src={getImagePath("https://images.unsplash.com/photo-1437751695201-298be97a82a8?q=80&w=2872&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")} alt="씨엘로 더 숲" className="w-full h-full object-cover" />
-                </div>
-                <div>
-                  <h3 className="font-medium text-primary text-sm">씨엘로 더 숲</h3>
-                  <p className="text-xs text-gray-600">자연장, 꽃 장례 서비스</p>
-                </div>
-              </Link>
-              <Link href="/cielo/story" className="flex p-3 hover:bg-gray-50 transition-colors border-b border-gray-100">
-                <div className="w-14 h-14 rounded-md overflow-hidden mr-3 flex-shrink-0">
-                  <img src={getImagePath("https://images.unsplash.com/photo-1437751695201-298be97a82a8?q=80&w=2872&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")} alt="씨엘로 더 스토리" className="w-full h-full object-cover" />
-                </div>
-                <div>
-                  <h3 className="font-medium text-primary text-sm">씨엘로 더 스토리</h3>
-                  <p className="text-xs text-gray-600">봉안당 서비스</p>
+            <div className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md overflow-hidden transform scale-0 group-hover:scale-100 transition-transform origin-top">
+              <Link 
+                href="/cielo/forest" 
+                className="block px-4 py-3 hover:bg-gray-50 transition-colors border-b border-gray-100"
+              >
+                <div className="flex flex-col">
+                  <span className="font-medium text-primary">씨엘로 더 숲</span>
+                  <span className="text-xs text-gray-500 mt-0.5">자연장, 꽃 장례 서비스</span>
                 </div>
               </Link>
-              <Link href="/cielo/stone" className="flex p-3 hover:bg-gray-50 transition-colors">
-                <div className="w-14 h-14 rounded-md overflow-hidden mr-3 flex-shrink-0">
-                  <img src={getImagePath("/images/basic-ceremony.jpg")} alt="씨엘로 더 스톤" className="w-full h-full object-cover" />
+              <Link 
+                href="/cielo/story" 
+                className="block px-4 py-3 hover:bg-gray-50 transition-colors border-b border-gray-100"
+              >
+                <div className="flex flex-col">
+                  <span className="font-medium text-primary">씨엘로 더 스토리</span>
+                  <span className="text-xs text-gray-500 mt-0.5">봉안당 서비스</span>
                 </div>
-                <div>
-                  <h3 className="font-medium text-primary text-sm">씨엘로 더 스톤</h3>
-                  <p className="text-xs text-gray-600">스톤 서비스</p>
+              </Link>
+              <Link 
+                href="/cielo/stone" 
+                className="block px-4 py-3 hover:bg-gray-50 transition-colors"
+              >
+                <div className="flex flex-col">
+                  <span className="font-medium text-primary">씨엘로 더 스톤</span>
+                  <span className="text-xs text-gray-500 mt-0.5">스톤 서비스</span>
                 </div>
               </Link>
             </div>
@@ -224,43 +224,34 @@ const Header = () => {
                 <div className="mt-3 pl-3 space-y-3 border-l-2 border-gray-100">
                   <Link 
                     href="/cielo/forest" 
-                    className="flex items-center py-2"
+                    className="block py-2"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    <div className="w-12 h-12 rounded-md overflow-hidden mr-3 flex-shrink-0">
-                      <img src={getImagePath("/images/flower-ceremony.jpg")} alt="씨엘로 더 숲" className="w-full h-full object-cover" />
-                    </div>
-                    <div>
-                      <h3 className="font-medium text-primary text-sm">씨엘로 더 숲</h3>
-                      <p className="text-xs text-gray-600">자연장, 꽃 장례 서비스</p>
+                    <div className="flex flex-col">
+                      <span className="font-medium text-primary">씨엘로 더 숲</span>
+                      <span className="text-xs text-gray-500 mt-0.5">자연장, 꽃 장례 서비스</span>
                     </div>
                   </Link>
                   
                   <Link 
                     href="/cielo/story" 
-                    className="flex items-center py-2"
+                    className="block py-2"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    <div className="w-12 h-12 rounded-md overflow-hidden mr-3 flex-shrink-0">
-                      <img src={getImagePath("/images/cielo-ceremony.jpg")} alt="씨엘로 더 스토리" className="w-full h-full object-cover" />
-                    </div>
-                    <div>
-                      <h3 className="font-medium text-primary text-sm">씨엘로 더 스토리</h3>
-                      <p className="text-xs text-gray-600">봉안당 서비스</p>
+                    <div className="flex flex-col">
+                      <span className="font-medium text-primary">씨엘로 더 스토리</span>
+                      <span className="text-xs text-gray-500 mt-0.5">봉안당 서비스</span>
                     </div>
                   </Link>
                   
                   <Link 
                     href="/cielo/stone" 
-                    className="flex items-center py-2"
+                    className="block py-2"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    <div className="w-12 h-12 rounded-md overflow-hidden mr-3 flex-shrink-0">
-                      <img src={getImagePath("/images/basic-ceremony.jpg")} alt="씨엘로 더 스톤" className="w-full h-full object-cover" />
-                    </div>
-                    <div>
-                      <h3 className="font-medium text-primary text-sm">씨엘로 더 스톤</h3>
-                      <p className="text-xs text-gray-600">스톤 서비스</p>
+                    <div className="flex flex-col">
+                      <span className="font-medium text-primary">씨엘로 더 스톤</span>
+                      <span className="text-xs text-gray-500 mt-0.5">스톤 서비스</span>
                     </div>
                   </Link>
                 </div>

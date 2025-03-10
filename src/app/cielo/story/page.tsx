@@ -13,17 +13,18 @@ export default function CieloStoryPage() {
         {/* 배경 이미지 */}
         <div className="absolute inset-0">
           <Image
-            src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?q=80&w=2940&auto=format&fit=crop"
+            src="https://images.unsplash.com/photo-1518156677180-95a2893f3e9f?q=80&w=2940&auto=format&fit=crop"
             alt="씨엘로 더 스토리"
             fill
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-transparent"></div>
         </div>
 
         {/* 움직이는 별 효과 */}
         <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 via-rose-500/10 to-purple-500/10 mix-blend-overlay"></div>
           {[...Array(20)].map((_, i) => (
             <motion.div
               key={i}
@@ -192,7 +193,7 @@ export default function CieloStoryPage() {
                   고급스러운 인테리어와 편안한 분위기의 프리미엄 봉안당에서 소중한 반려동물을 
                   기억하세요. 개인 맞춤형 공간 디자인과 다양한 추모 서비스를 제공합니다.
                 </p>
-                <ul className="space-y-4 mb-6">
+                <ul className="space-y-4 mb-6 text-black">
                   {[
                     "개인 맞춤형 봉안함 디자인",
                     "24시간 방문 가능한 추모 공간",
@@ -256,7 +257,7 @@ export default function CieloStoryPage() {
                   언제 어디서나 접속 가능한 디지털 추모관을 통해 소중한 반려동물의 추억을 
                   간직하세요. 사진, 영상, 이야기를 담아 영원히 기억할 수 있습니다.
                 </p>
-                <ul className="space-y-4 mb-6">
+                <ul className="space-y-4 mb-6 text-black">
                   {[
                     "개인 맞춤형 디지털 추모 페이지",
                     "사진 및 영상 갤러리 제공",
