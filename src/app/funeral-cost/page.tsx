@@ -1,8 +1,9 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
-import { ArrowRight, Check, Phone, Clock, Calendar } from 'lucide-react';
+import { ArrowRight, Check, Phone, Calendar, Heart } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 // 장례 컨셉 데이터
 const funeralConceptPlans = [
@@ -11,7 +12,7 @@ const funeralConceptPlans = [
     title: '베이직 예식',
     price: '390,000원',
     description: '소중한 반려동물을 위한 기본적인 장례 서비스로, 정중하고 품격 있는 마지막 길을 제공합니다.',
-    image: 'https://plus.unsplash.com/premium_photo-1715110519254-7e1b6e7528c9?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    image: 'https://images.unsplash.com/photo-1605493725784-75d4288298c3?q=80&w=2940&auto=format&fit=crop',
     features: [
       '기본 장례용품 제공',
       '단독 화장 서비스',
@@ -27,7 +28,7 @@ const funeralConceptPlans = [
     title: '씨엘로 예식',
     price: '590,000원',
     description: '프리미엄 장례 서비스로, 고급스러운 의식과 특별한 추모 경험을 제공합니다.',
-    image: 'https://media.istockphoto.com/id/451187387/ko/%EC%82%AC%EC%A7%84/%EA%BD%83-%ED%95%9C-%EC%BD%94%ED%95%80-%EC%9E%88%EB%8A%94-%EA%B5%90%ED%9A%8C.jpg?s=1024x1024&w=is&k=20&c=NbH2xxj7LJMZIqcw-XqMXcozI2snKZ3oBxz2RJ2A_aY=',
+    image: 'https://images.unsplash.com/photo-1518893494013-481c1d8ed3fd?q=80&w=2940&auto=format&fit=crop',
     features: [
       '프리미엄 장례용품 제공',
       '단독 화장 서비스',
@@ -45,7 +46,7 @@ const funeralConceptPlans = [
     title: '플라워 예식',
     price: '690,000원',
     description: '아름다운 꽃으로 장식된 특별한 장례 서비스로, 화사하고 따뜻한 분위기에서 마지막 작별을 할 수 있습니다.',
-    image: 'https://images.unsplash.com/photo-1544813545-4827b64fcacb?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    image: 'https://images.unsplash.com/photo-1544813545-4827b64fcacb?q=80&w=2940&auto=format&fit=crop',
     features: [
       '꽃으로 장식된 추모실',
       '단독 화장 서비스',
@@ -62,18 +63,26 @@ const funeralConceptPlans = [
 const importantNotices = [
   {
     id: 'size',
+    icon: 'package',
+    title: '기본 제공 서비스',
     description: '염습과정 + 단독 추모실 + 단독 화장 + 헌화 + 삼베 덮개 + 기본 유골함 + 고급 보자기 + 제단 사진'
   },
   {
     id: 'visit',
+    icon: 'info',
+    title: '비용 안내',
     description: '모든 서비스는 비용은 부가세(VAT) 별도 금액입니다.'
   },
   {
     id: 'additional',
+    icon: 'flower',
+    title: '플로리스트 서비스',
     description: '씨엘로펫은 전문 플로리스트가 디자인한 생화 장식으로 보다 향기롭고 특별한 장례를 제공합니다.'
   },
   {
     id: 'transparent',
+    icon: 'alert',
+    title: '추가 비용',
     description: '장례 용품 사이즈 변경 시 추가비용 발생합니다.'
   }
 ];
@@ -103,145 +112,195 @@ const frequentlyAskedQuestions = [
 ];
 
 export default function FuneralCostPage() {
+  const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
+
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       {/* 헤더 섹션 */}
-      <section className="py-12 md:py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center bg-gradient-to-r from-primary/5 to-secondary/5 rounded-2xl overflow-hidden shadow-sm">
-            <div className="md:w-1/2 p-8 md:p-12">
-              <h1 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-                소중한 가족과의 마지막 이별을 위한 <br />맞춤형 장례 비용
-              </h1>
-              <p className="text-gray-600 mb-8">
-                씨엘로 펫은 소중한 반려동물의 마지막 여정을 정성을 다해 함께합니다.<br/>
-                투명한 비용 안내와 맞춤형 서비스로 편안한 이별을 도와드립니다.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a href="tel:1577-7332" className="inline-flex items-center justify-center bg-accent text-black px-6 py-3 rounded-lg hover:bg-accent2 transition-colors font-medium">
-                  <Phone size={18} className="mr-2" />
-                  1577-7332
-                </a>
-                <a href="/funeral-reservation" className="inline-flex items-center justify-center bg-accent text-black px-6 py-3 rounded-lg hover:bg-accent2 transition-colors font-medium">
-                  <Calendar size={18} className="mr-2" />
-                  장례 예약하기
-                </a>
-              </div>
-            </div>
-            <div className="md:w-1/2 h-64 md:h-80 relative ml-auto">
-              <Image
-                src="https://plus.unsplash.com/premium_photo-1715110520644-f9e4a8751039?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt="반려동물 장례 서비스"
-                fill
-                className="object-cover"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent"></div>
-            </div>
-            
+      <section className="relative h-[60vh] sm:h-[70vh] overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="https://images.unsplash.com/photo-1534361960057-19889db9621e?q=80&w=2940&auto=format&fit=crop"
+            alt="장례 서비스"
+            fill
+            className="object-cover filter brightness-75"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/30 to-white"></div>
+        </div>
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="relative z-10 h-full flex flex-col justify-center items-center text-center px-4 sm:px-6"
+        >
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight">
+            마지막 여정을 위한 <br/>
+            <span className="text-primary-light">정성어린 준비</span>
+          </h1>
+          <p className="text-lg sm:text-xl md:text-2xl text-white/90 max-w-3xl font-light px-4 mb-8">
+            소중한 가족과의 이별에 
+            <span className="font-medium">정성과 예우</span>를 다하겠습니다
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              href="tel:1577-7332"
+              className="inline-flex items-center justify-center bg-white/90 text-primary px-6 py-3 rounded-full hover:bg-white transition-colors font-medium backdrop-blur-sm"
+            >
+              <Phone size={18} className="mr-2" />
+              1577-7332
+            </motion.a>
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              href="/funeral-reservation"
+              className="inline-flex items-center justify-center bg-primary/90 text-white px-6 py-3 rounded-full hover:bg-primary transition-colors font-medium backdrop-blur-sm"
+            >
+              <Calendar size={18} className="mr-2" />
+              장례 예약하기
+            </motion.a>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* 중요 안내 사항 섹션 */}
+      <section className="py-16 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-4">
+              투명한 비용 안내
+            </h2>
+            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
+              씨엘로 펫은 모든 비용을 투명하게 공개하며, <br/>
+              예상치 못한 추가 비용이 발생하지 않도록 안내해 드립니다.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {importantNotices.map((notice, index) => (
+              <motion.div
+                key={notice.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow border border-primary/10"
+              >
+                <h3 className="text-lg font-bold text-primary mb-2">{notice.title}</h3>
+                <p className="text-gray-600">{notice.description}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* 장례 컨셉 섹션 */}
       <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-
-          {/* 중요 안내 사항 */}
-          <div className="mb-16">
-            <div className="bg-white rounded-xl shadow-sm border border-primary/10 p-6 md:p-8">
-              <div className="flex flex-col md:flex-row items-start gap-6">
-                {/* <div className="bg-primary/10 rounded-full p-4 flex-shrink-0">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <line x1="12" y1="8" x2="12" y2="12"></line>
-                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
-                  </svg>
-                </div> */}
-                <div>
-                  {/* <h3 className="text-2xl font-bold text-primary mb-4">장례 비용 안내 사항</h3> */}
-                  <div className="space-y-4 text-gray-700">
-                    {importantNotices.map((notice) => (
-                      <p key={notice.id}>
-                        * {notice.description}
-                      </p>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-4">
+              맞춤형 장례 서비스
+            </h2>
+            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
+              소중한 반려동물의 개성과 보호자님의 마음에 맞는 <br/>
+              <span className="text-primary font-medium">특별한 장례 서비스</span>를 선택하실 수 있습니다
+            </p>
+          </motion.div>
 
           <div className="space-y-12">
-            {funeralConceptPlans.map((concept) => (
-              <div key={concept.id} className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden border border-gray-100">
+            {funeralConceptPlans.map((concept, index) => (
+              <motion.div
+                key={concept.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="group bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden"
+              >
                 <div className="flex flex-col md:flex-row">
-                  <div className="md:w-1/2 h-64 md:h-[400px] relative">
-                    <Image
-                      src={concept.image}
-                      alt={concept.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover aspect-[4/3] md:aspect-auto"
-                    />
+                  <div className="relative md:w-1/2">
+                    <div className="relative h-64 md:h-full">
+                      <Image
+                        src={concept.image}
+                        alt={concept.title}
+                        fill
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    </div>
+                    <div className="absolute bottom-4 left-4 right-4 text-white">
+                      <h3 className="text-2xl font-bold mb-2">{concept.title}</h3>
+                      <div className="text-xl font-semibold">{concept.price}</div>
+                    </div>
                     {concept.popular && (
-                      <div className="absolute top-4 left-4 bg-primary/90 text-white px-4 py-1 rounded-full text-sm font-medium">
+                      <div className="absolute top-4 left-4 bg-primary text-white px-4 py-1 rounded-full text-sm font-medium">
                         가장 인기 있는 선택
                       </div>
                     )}
                   </div>
-                  <div className="p-8 md:p-10 md:w-1/2 bg-gradient-to-br from-white to-gray-50">
-                    <div className="md:flex md:justify-between md:items-start">
-                      <h3 className="text-2xl font-bold text-gray-800 mb-2 md:mb-0">{concept.title}</h3>
-                      <div className="bg-primary/10 text-primary rounded-full px-4 py-1 text-xl font-semibold inline-block mb-3 md:mb-0">
-                        {concept.price}
-                      </div>
-                    </div>
-                    
-                    <p className="text-gray-600 mb-6 leading-relaxed">{concept.description}</p>
-                    
-                    <div className="mb-6">
-                      <h4 className="font-medium text-gray-800 mb-3 flex items-center">
-                        <div className="w-1 h-5 bg-primary mr-2"></div>
+                  <div className="p-6 md:p-8 md:w-1/2">
+                    <p className="text-gray-600 mb-6">{concept.description}</p>
+                    <div className="space-y-4">
+                      <h4 className="font-medium text-gray-800 flex items-center">
+                        <Heart size={16} className="text-primary mr-2" />
                         포함 서비스
                       </h4>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        {concept.features.map((feature, index) => (
-                          <div key={index} className="flex items-start">
-                            <div className="bg-primary/10 rounded-full p-1 mr-2 mt-0.5 flex-shrink-0">
-                              <Check size={18} className="text-primary" />
-                            </div>
-                            <span className="text-gray-600 text-base leading-tight">{feature}</span>
+                        {concept.features.map((feature, idx) => (
+                          <div key={idx} className="flex items-start">
+                            <Check size={16} className="text-primary mr-2 mt-1 flex-shrink-0" />
+                            <span className="text-gray-600 text-sm">{feature}</span>
                           </div>
                         ))}
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 추가 정보 섹션 */}
-      <section className="py-16 md:py-24 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
+      {/* FAQ 섹션 */}
+      <section className="py-16 md:py-24 bg-gradient-to-b from-white to-primary/5">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-4">
               자주 묻는 질문
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              장례 비용 및 서비스에 관한 자주 묻는 질문들을 모았습니다.
+            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
+              궁금하신 사항에 대한 답변을 찾아보세요
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {frequentlyAskedQuestions.map((faq) => (
-              <div key={faq.id} className="bg-white p-8 rounded-xl shadow-sm">
-                <h3 className="text-xl font-bold text-primary mb-4">{faq.question}</h3>
-                <p className="text-gray-600">{faq.answer}</p>
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {frequentlyAskedQuestions.map((faq, index) => (
+              <motion.div
+                key={faq.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
+              >
+                <h3 className="text-lg font-bold text-primary mb-3">{faq.question}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{faq.answer}</p>
+              </motion.div>
             ))}
           </div>
         </div>

@@ -41,7 +41,7 @@ const storyItems = [
     id: 'premium',
     title: '프리미엄 서비스',
     subtitle: '특별한 추억을 위한 선택',
-    description: '플라워 장례, 갤럭시 스톤, 추모 앨범 등 소중한 반려동물과의 추억을 영원히 간직할 수 있는 프리미엄 서비스를 제공합니다.',
+    description: '씨엘로펫 더 숲, 씨엘로펫 더 스토리, 씨엘로펫 더 스톤 등 소중한 반려동물과의 추억을 영원히 간직할 수 있는 프리미엄 서비스를 제공합니다.',
     image: 'https://images.unsplash.com/photo-1437751695201-298be97a82a8?q=80&w=2872&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     buttonText: '프리미엄 서비스',
     buttonLink: '/premium',
