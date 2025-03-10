@@ -1,7 +1,8 @@
 {
-  "/funeral-cost/page": "app/funeral-cost/page.js",
+  "/not-found": "app/not-found.js",
+  "/facility/page": "app/facility/page.js",
   "/cielo/forest/page": "app/cielo/forest/page.js",
   "/cielo/story/page": "app/cielo/story/page.js",
-  "/cielo/stone/page": "app/cielo/stone/page.js",
-  "/page": "app/page.js"
+  "/page": "app/page.js",
+  "/funeral-cost/page": "app/funeral-cost/page.js"
 }

@@ -6,15 +6,25 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/funeral-cost/page": [
+    "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/funeral-cost/page.js"
+      "static/chunks/app/page.js"
     ],
     "/funeral-services/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/funeral-services/page.js"
+    ],
+    "/funeral-cost/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/funeral-cost/page.js"
+    ],
+    "/facility/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/facility/page.js"
     ],
     "/cielo/forest/page": [
       "static/chunks/webpack.js",
@@ -26,15 +36,10 @@
       "static/chunks/main-app.js",
       "static/chunks/app/cielo/story/page.js"
     ],
-    "/cielo/stone/page": [
+    "/not-found": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/cielo/stone/page.js"
-    ],
-    "/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
+      "static/chunks/app/not-found.js"
     ]
   }
 }

@@ -14,7 +14,7 @@ const storyItems = [
     description: '씨엘로펫은 반려동물과의 마지막 이별을 존엄하고 아름답게 함께합니다. 개별 추모실에서 가족들과 함께하는 시간을 제공하며, 전문 장례지도사가 정성을 다해 도와드립니다.',
     image: 'https://images.unsplash.com/photo-1581888227599-779811939961?q=80&w=2074&auto=format&fit=crop',
     buttonText: '서비스 알아보기',
-    buttonLink: '/services',
+    buttonLink: '/funeral-services',
     accent: 'bg-gray-100'
   },
   {
@@ -24,7 +24,7 @@ const storyItems = [
     description: '추가 비용 없이 정직한 가격으로 장례 서비스를 제공합니다. 반려동물의 크기와 선택하신 서비스에 따라 맞춤형 견적을 제공해 드립니다.',
     image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=2036&auto=format&fit=crop',
     buttonText: '비용 확인하기',
-    buttonLink: '/pricing',
+    buttonLink: '/funeral-cost',
     accent: 'bg-gray-100'
   },
   {
@@ -34,7 +34,7 @@ const storyItems = [
     description: '현대적이고 깨끗한 시설에서 반려동물과의 마지막을 함께합니다. 개별 추모실, 장례식장, 화장시설 등 모든 공간이 정성스럽게 관리됩니다.',
     image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop',
     buttonText: '시설 둘러보기',
-    buttonLink: '/facilities',
+    buttonLink: '/facility',
     accent: 'bg-gray-100'
   },
   {
@@ -44,7 +44,7 @@ const storyItems = [
     description: '씨엘로펫 더 숲, 씨엘로펫 더 스토리, 씨엘로펫 더 스톤 등 소중한 반려동물과의 추억을 영원히 간직할 수 있는 프리미엄 서비스를 제공합니다.',
     image: 'https://images.unsplash.com/photo-1437751695201-298be97a82a8?q=80&w=2872&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     buttonText: '프리미엄 서비스',
-    buttonLink: '/premium',
+    buttonLink: '/cielo/forest',
     accent: 'bg-gray-100'
   }
 ];
