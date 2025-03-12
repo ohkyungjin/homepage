@@ -4,8 +4,20 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Gem, Star, Sparkles, Diamond } from 'lucide-react';
+import { stoneServices } from '@/data/stoneServices';
 
 export default function CieloStonePage() {
+  const getIcon = (iconName: string, size: number, className: string) => {
+    switch (iconName) {
+      case 'Gem':
+        return <Gem size={size} className={className} />;
+      case 'Star':
+        return <Star size={size} className={className} />;
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#F8F6F9]">
       {/* 헤더 섹션 */}
@@ -170,135 +182,63 @@ export default function CieloStonePage() {
       {/* 서비스 특징 */}
       <div className="max-w-6xl mx-auto px-6 py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* 맞춤형 석물 제작 */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="group"
-          >
-            <div className="relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-indigo-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="aspect-[4/3] relative">
-                <Image
-                  src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2940&auto=format&fit=crop"
-                  alt="맞춤형 석물 제작"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  className="absolute bottom-6 left-6"
-                >
-                  <div className="inline-flex items-center bg-white/90 rounded-full px-4 py-2 backdrop-blur-sm">
-                    <Gem size={16} className="text-purple-600 mr-2" />
-                    <span className="text-purple-600 font-medium">맞춤형 석물 제작</span>
-                  </div>
-                </motion.div>
-              </div>
-              <div className="relative p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">정성을 담은 석물 추모비</h3>
-                <p className="text-gray-600 mb-6">
-                  반려동물의 개성과 특징을 반영한 맞춤형 석물 추모비를 제작합니다.
-                  최고급 대리석과 화강암을 사용하여 시간이 지나도 변하지 않는 
-                  아름다운 추모 공간을 만들어 드립니다.
-                </p>
-                <ul className="space-y-4 mb-6 text-black">
-                  {[
-                    "최고급 대리석, 화강암 소재 사용",
-                    "반려동물 모습 조각 서비스",
-                    "맞춤형 디자인 및 문구 각인",
-                    "정기적인 관리 및 청소 서비스"
-                  ].map((feature, index) => (
-                    <motion.li
-                      key={index}
-                      whileHover={{ x: 5 }}
-                      className="flex items-start group/item"
-                    >
-                      <div className="w-1.5 h-1.5 rounded-full bg-purple-600 mt-2 mr-2 group-hover/item:scale-150 transition-transform"></div>
-                      <span>{feature}</span>
-                    </motion.li>
-                  ))}
-                </ul>
-                <motion.div whileHover={{ x: 5 }}>
-                  <Link
-                    href="/funeral-reservation"
-                    className="inline-flex items-center text-purple-600 font-medium hover:underline"
+          {stoneServices.map((service, index) => (
+            <motion.div
+              key={service.id}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: index * 0.2 }}
+              viewport={{ once: true }}
+              className="group"
+            >
+              <div className="relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+                <div className={`absolute inset-0 bg-gradient-to-r ${service.gradientFrom} ${service.gradientTo} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+                <div className="aspect-[4/3] relative">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    className="absolute bottom-6 left-6"
                   >
-                    자세히 알아보기
-                    <ArrowRight size={16} className="ml-1" />
-                  </Link>
-                </motion.div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* 프리미엄 추모 공원 */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="group"
-          >
-            <div className="relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
-              <div className="absolute inset-0 bg-gradient-to-r from-amber-500/20 to-orange-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="aspect-[4/3] relative">
-                <Image
-                  src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2940&auto=format&fit=crop"
-                  alt="프리미엄 추모 공원"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  className="absolute bottom-6 left-6"
-                >
-                  <div className="inline-flex items-center bg-white/90 rounded-full px-4 py-2 backdrop-blur-sm">
-                    <Star size={16} className="text-amber-600 mr-2" />
-                    <span className="text-amber-600 font-medium">프리미엄 추모 공원</span>
-                  </div>
-                </motion.div>
-              </div>
-              <div className="relative p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">아름다운 추모 공간</h3>
-                <p className="text-gray-600 mb-6">
-                  자연과 조화를 이루는 아름다운 추모 공원에서 소중한 반려동물을 기억하세요.
-                  평화로운 환경과 세심한 관리로 언제나 편안하게 방문할 수 있는 
-                  특별한 공간을 제공합니다.
-                </p>
-                <ul className="space-y-4 mb-6 text-black">
-                  {[
-                    "자연 친화적 추모 공원 조성",
-                    "개인 또는 가족 전용 구역 제공",
-                    "계절별 꽃 식재 및 환경 관리",
-                    "편안한 휴식 공간 및 방문 편의시설"
-                  ].map((feature, index) => (
-                    <motion.li
-                      key={index}
-                      whileHover={{ x: 5 }}
-                      className="flex items-start group/item"
+                    <div className="inline-flex items-center bg-white/90 rounded-full px-4 py-2 backdrop-blur-sm">
+                      {getIcon(service.icon, 16, `${service.iconColor} mr-2`)}
+                      <span className={`${service.iconColor} font-medium`}>{service.title}</span>
+                    </div>
+                  </motion.div>
+                </div>
+                <div className="relative p-8">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.subtitle}</h3>
+                  <p className="text-gray-600 mb-6">{service.description}</p>
+                  <ul className="space-y-4 mb-6 text-black">
+                    {service.features.map((feature, featureIndex) => (
+                      <motion.li
+                        key={featureIndex}
+                        whileHover={{ x: 5 }}
+                        className="flex items-start group/item"
+                      >
+                        <div className={`w-1.5 h-1.5 rounded-full bg-${service.iconColor.split('-')[1]} mt-2 mr-2 group-hover/item:scale-150 transition-transform`}></div>
+                        <span>{feature}</span>
+                      </motion.li>
+                    ))}
+                  </ul>
+                  <motion.div whileHover={{ x: 5 }}>
+                    <Link
+                      href="/funeral-reservation"
+                      className={`inline-flex items-center ${service.iconColor} font-medium hover:underline`}
                     >
-                      <div className="w-1.5 h-1.5 rounded-full bg-amber-600 mt-2 mr-2 group-hover/item:scale-150 transition-transform"></div>
-                      <span>{feature}</span>
-                    </motion.li>
-                  ))}
-                </ul>
-                <motion.div whileHover={{ x: 5 }}>
-                  <Link
-                    href="/funeral-reservation"
-                    className="inline-flex items-center text-amber-600 font-medium hover:underline"
-                  >
-                    자세히 알아보기
-                    <ArrowRight size={16} className="ml-1" />
-                  </Link>
-                </motion.div>
+                      자세히 알아보기
+                      <ArrowRight size={16} className="ml-1" />
+                    </Link>
+                  </motion.div>
+                </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          ))}
         </div>
       </div>
 

@@ -1,8 +1,13 @@
 {
-  "/not-found": "app/not-found.js",
-  "/facility/page": "app/facility/page.js",
+  "/_not-found": "app/_not-found.js",
   "/cielo/forest/page": "app/cielo/forest/page.js",
+  "/cielo/page": "app/cielo/page.js",
+  "/cielo/stone/page": "app/cielo/stone/page.js",
+  "/facility/page": "app/facility/page.js",
   "/cielo/story/page": "app/cielo/story/page.js",
+  "/funeral-cost/page": "app/funeral-cost/page.js",
+  "/funeral-services/page": "app/funeral-services/page.js",
+  "/home/page": "app/home/page.js",
   "/page": "app/page.js",
-  "/funeral-cost/page": "app/funeral-cost/page.js"
+  "/funeral-reservation/page": "app/funeral-reservation/page.js"
 }

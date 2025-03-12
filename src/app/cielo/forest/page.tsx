@@ -4,8 +4,20 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Leaf, Flower2, Wind, Cloud, Sun } from 'lucide-react';
+import { forestServices } from '@/data/forestServices';
 
 export default function CieloForestPage() {
+  const getIcon = (iconName: string, size: number, className: string) => {
+    switch (iconName) {
+      case 'Leaf':
+        return <Leaf size={size} className={className} />;
+      case 'Flower2':
+        return <Flower2 size={size} className={className} />;
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#F4F9F4]">
       {/* 헤더 섹션 */}
@@ -169,133 +181,63 @@ export default function CieloForestPage() {
       {/* 서비스 특징 */}
       <div className="max-w-6xl mx-auto px-6 py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* 자연장 서비스 */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="group"
-          >
-            <div className="relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
-              <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-emerald-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="aspect-[4/3] relative">
-                <Image
-                  src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=2940&auto=format&fit=crop"
-                  alt="자연장 서비스"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  className="absolute bottom-6 left-6"
-                >
-                  <div className="inline-flex items-center bg-white/90 rounded-full px-4 py-2 backdrop-blur-sm">
-                    <Leaf size={16} className="text-green-600 mr-2" />
-                    <span className="text-green-600 font-medium">자연장 서비스</span>
-                  </div>
-                </motion.div>
-              </div>
-              <div className="relative p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">자연과 하나 되는 안식</h3>
-                <p className="text-gray-600 mb-6">
-                  자연 분해되는 친환경 유골함과 함께 아름다운 자연 속에서 영원한 안식을 취할 수 있는 
-                  자연장 서비스입니다. 나무, 꽃, 식물과 함께 자연의 일부로 돌아가는 평화로운 여정을 함께합니다.
-                </p>
-                <ul className="space-y-4 mb-6 text-black">
-                  {[
-                    "생분해성 친환경 유골함 제공",
-                    "나무 또는 꽃과 함께 심는 수목장",
-                    "자연 친화적 추모 공간 조성",
-                    "정기적인 관리 및 방문 서비스"
-                  ].map((feature, index) => (
-                    <motion.li
-                      key={index}
-                      whileHover={{ x: 5 }}
-                      className="flex items-start group/item"
-                    >
-                      <div className="w-1.5 h-1.5 rounded-full bg-green-600 mt-2 mr-2 group-hover/item:scale-150 transition-transform"></div>
-                      <span>{feature}</span>
-                    </motion.li>
-                  ))}
-                </ul>
-                <motion.div whileHover={{ x: 5 }}>
-                  <Link
-                    href="/funeral-reservation"
-                    className="inline-flex items-center text-green-600 font-medium hover:underline"
+          {forestServices.map((service, index) => (
+            <motion.div
+              key={service.id}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: index * 0.2 }}
+              viewport={{ once: true }}
+              className="group"
+            >
+              <div className="relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+                <div className={`absolute inset-0 bg-gradient-to-r ${service.gradientFrom} ${service.gradientTo} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+                <div className="aspect-[4/3] relative">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    className="absolute bottom-6 left-6"
                   >
-                    자세히 알아보기
-                    <ArrowRight size={16} className="ml-1" />
-                  </Link>
-                </motion.div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* 꽃 장례 서비스 */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="group"
-          >
-            <div className="relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
-              <div className="absolute inset-0 bg-gradient-to-r from-rose-500/20 to-pink-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="aspect-[4/3] relative">
-                <Image
-                  src="https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?q=80&w=2940&auto=format&fit=crop"
-                  alt="꽃 장례 서비스"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  className="absolute bottom-6 left-6"
-                >
-                  <div className="inline-flex items-center bg-white/90 rounded-full px-4 py-2 backdrop-blur-sm">
-                    <Flower2 size={16} className="text-rose-600 mr-2" />
-                    <span className="text-rose-600 font-medium">꽃 장례 서비스</span>
-                  </div>
-                </motion.div>
-              </div>
-              <div className="relative p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">꽃으로 전하는 마지막 인사</h3>
-                <p className="text-gray-600 mb-6">
-                  아름다운 꽃으로 장식된 특별한 장례식을 통해 소중한 반려동물과의 마지막 이별을 
-                  더욱 의미 있고 아름답게 만들어 드립니다. 계절별 다양한 꽃으로 맞춤 장식을 제공합니다.
-                </p>
-                <ul className="space-y-4 mb-6 text-black">
-                  {[
-                    "신선한 생화로 장식된 장례식장",
-                    "반려동물의 성격과 취향을 반영한 꽃 선택",
-                    "꽃잎 의식 및 특별 추모 행사",
-                    "보존 가능한 추모 꽃 액자 제작"
-                  ].map((feature, index) => (
-                    <motion.li
-                      key={index}
-                      whileHover={{ x: 5 }}
-                      className="flex items-start group/item"
+                    <div className="inline-flex items-center bg-white/90 rounded-full px-4 py-2 backdrop-blur-sm">
+                      {getIcon(service.icon, 16, `${service.iconColor} mr-2`)}
+                      <span className={`${service.iconColor} font-medium`}>{service.title}</span>
+                    </div>
+                  </motion.div>
+                </div>
+                <div className="relative p-8">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.subtitle}</h3>
+                  <p className="text-gray-600 mb-6">{service.description}</p>
+                  <ul className="space-y-4 mb-6 text-black">
+                    {service.features.map((feature, featureIndex) => (
+                      <motion.li
+                        key={featureIndex}
+                        whileHover={{ x: 5 }}
+                        className="flex items-start group/item"
+                      >
+                        <div className={`w-1.5 h-1.5 rounded-full bg-${service.iconColor.split('-')[1]} mt-2 mr-2 group-hover/item:scale-150 transition-transform`}></div>
+                        <span>{feature}</span>
+                      </motion.li>
+                    ))}
+                  </ul>
+                  <motion.div whileHover={{ x: 5 }}>
+                    <Link
+                      href="/funeral-reservation"
+                      className={`inline-flex items-center ${service.iconColor} font-medium hover:underline`}
                     >
-                      <div className="w-1.5 h-1.5 rounded-full bg-rose-600 mt-2 mr-2 group-hover/item:scale-150 transition-transform"></div>
-                      <span>{feature}</span>
-                    </motion.li>
-                  ))}
-                </ul>
-                <motion.div whileHover={{ x: 5 }}>
-                  <Link
-                    href="/funeral-reservation"
-                    className="inline-flex items-center text-rose-600 font-medium hover:underline"
-                  >
-                    자세히 알아보기
-                    <ArrowRight size={16} className="ml-1" />
-                  </Link>
-                </motion.div>
+                      자세히 알아보기
+                      <ArrowRight size={16} className="ml-1" />
+                    </Link>
+                  </motion.div>
+                </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          ))}
         </div>
       </div>
 
